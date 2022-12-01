@@ -57,7 +57,7 @@ plt.legend(['Regression Line','Data points'])
 ~~~
 
 # Output :
-![4](31.jpg)
+![4](31.png)
 
 
 
