@@ -25,35 +25,39 @@ If y represents the dependent variable and x the independent variable, this rela
 import numpy as np
 import math
 import matplotlib.pyplot as plt
-x=[int(i) for i in input().split()]
-y=[int(i) for i in input().split()]
+x=[ int(i) for i in input().split()]
+y=[ int(i) for i in input().split()]
 N=len(x)
-sx=sy=sxy=sx2=sy2=0
+Sx=0
+Sy=0
+Sxy=0
+Sx2=0
+Sy2=0
 for i in range(0,N):
-    sx=sx+x[i]
-    sy=sy+y[i]
-    sxy=sxy+x[i]*y[i]
-    sx2=sx2+x[i]**2
-    sy2=sy2+x[i]**2
-r=(N*sxy-sx*sy)/(math.sqrt(N*sx2-sx**2)*math.sqrt(N*sy2-sy**2))
-print("The coorelation coefficient is %0.3f"%r)
-byx=(N*sxy-sx*sy)/(N*sx2-sx**2)
-xmean=sx/N
-ymean=sy/N
-print("The regression line Y on X ::: y = %0.3f %0.3f (x-%0.3f)"%(ymean,byx,xmean))
+    Sx=Sx+x[i]
+    Sy=Sy+y[i]
+    Sxy=Sxy+x[i]*y[i]
+    Sx2=Sx2+x[i]**2
+    Sy2=Sy2+y[i]**2
+r=(N*Sxy-Sx*Sy)/(math.sqrt(N*Sx2-Sx**2)*math.sqrt(N*Sy2-Sy**2))
+print("The Correlation coefficient is %0.3f"%r)
+byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2)
+xmean=Sx/N
+ymean=Sy/N
+print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)"%(ymean,byx,xmean))
 plt.scatter(x,y)
 def Reg(x):
-    return ymean+byx*(x-xmean)
-x=np.linspace(0,80,51)
+  return ymean + byx*(x-xmean)
+x=np.linspace(20,80,51)
 y1=Reg(x)
 plt.plot(x,y1,'r')
 plt.xlabel('x-data')
 plt.ylabel('y-data')
-plt.legend(['regression line','data points'])
+plt.legend(['Regression Line','Data points'])
 ~~~
 
 # Output :
-![4](https://user-images.githubusercontent.com/94980741/199167689-e42659c7-ae7e-4eda-8de0-f283598a142d.jpg)
+![4](31.jpg)
 
 
 
